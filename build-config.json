@@ -1,0 +1,7 @@
+{
+    "css": {
+        "libs": [
+            "./node_modules/bootstrap/dist/css/bootstrap.css"
+        ]
+    }
+}

@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-md-5" ng-show="addFormShow">
+        <h3>Add Address</h3>
+        <form ng-submit=addAddress()>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Street</label>
+                <input type="text" class="form-control" placeholder="Street" ng-model="street">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ward</label>
+                <input type="text" class="form-control" placeholder="Ward" ng-model="ward">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">District</label>
+                <input type="text" class="form-control" placeholder="District" ng-model="district">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">City</label>
+                <input type="text" class="form-control" placeholder="City" ng-model="city">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Country</label>
+                <input type="text" class="form-control" placeholder="Country" ng-model="country">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
+    <div class="col-md-5" ng-show="editFormShow">
+        <h3>Edit Address</h3>
+        <form ng-submit=editAddress()>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Street</label>
+                <input type="text" class="form-control" placeholder="Street" ng-model="street">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ward</label>
+                <input type="text" class="form-control" placeholder="Ward" ng-model="ward">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">District</label>
+                <input type="text" class="form-control" placeholder="District" ng-model="district">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">City</label>
+                <input type="text" class="form-control" placeholder="City" ng-model="city">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Country</label>
+                <input type="text" class="form-control" placeholder="Country" ng-model="country">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+    </div>
+
+    <div class="col-md-7">
+        <h3>
+            Address List
+        </h3>
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>Street</th>
+                    <th>Ward</th>
+                    <th>District</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>
+                <tbody>
+                    <tr ng-repeat="address in addressList">
+                        <td>{{address.street}}</td>
+                        <td>{{address.ward}}</td>
+                        <td>{{address.district}}</td>
+                        <td>{{address.city}}</td>
+                        <td>{{address.country}}</td>
+                        <td><a class="btn btn-default" ng-click="showEditForm(address)">Edit</a></td>
+                        <td><a class="btn btn-danger" ng-click="removeAddress(address)">Delete</a></td>
+                    </tr>
+                </tbody>
+            </thead>
+        </table>
+    </div>
+</div>
