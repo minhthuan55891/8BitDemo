@@ -75,7 +75,6 @@
 		$scope.showAddNewForm = function(address) {
 		   $scope.addFormShow = true;
 		   $scope.editFormShow = false;
-		   resetData();
 	   };
 	};
 })();
