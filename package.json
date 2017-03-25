@@ -6,6 +6,7 @@
   "devDependencies": {
     "angular": "^1.5.0-beta.2",
     "angular-animate": "^1.5.0-beta.2",
+    "angular-google-maps": "^2.4.1",
     "angular-route": "^1.5.0-beta.2",
     "angular-sanitize": "^1.6.3",
     "browserify-ngannotate": "^2.0.0",

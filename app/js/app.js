@@ -10,6 +10,7 @@
 	require('ng-csv/build/ng-csv.js');
 
 	var addressCtrl = require ('./addressCtrl.js');
+	var googleMapDirective = require('./googleMapDirective.js');
 	var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'firebase', 'ngSanitize', 'ngCsv']);
 
 	myApp.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -26,6 +27,8 @@
 	}]);
 
 	myApp.constant('API', 'https://address-9aaab.firebaseio.com/');
+	// myApp.constant('API', 'https://addressdb-2df6e.firebaseio.com/');
 	myApp.controller('addressCtrl', addressCtrl);
+	myApp.directive('googleMap', googleMapDirective);
 
 }());

@@ -11,6 +11,7 @@
 	    var ref = new Firebase(API);
 
 	    $scope.addressList = $firebaseArray(ref);
+		$scope.addressObject = undefined;
 
 	    $scope.addAddress = function() {
 	        console.log('Adding address');
@@ -76,5 +77,14 @@
 		   $scope.addFormShow = true;
 		   $scope.editFormShow = false;
 	   };
+
+		$scope.updateAddressForm = function(address) {
+			$scope.street = address.streetNumber + ' ' + address.street;
+	        $scope.ward = address.ward;
+	        $scope.district = address.district;
+	        $scope.city = address.city;
+	        $scope.country = address.country;
+			$scope.$apply();
+		};
 	};
 })();

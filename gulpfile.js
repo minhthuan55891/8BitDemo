@@ -34,24 +34,24 @@ gulp.task('connect-dist', function () {
 
 gulp.task('clean', function() {
 	 gulp.src('./dist/**')
-    //  gulp.src('./dist/**/*')
-      .pipe(clean({force: true}));
+     .pipe(clean({force: true}));
 	 gulp.src('./app/js/bundled.js')
-      .pipe(clean({force: true}));
+     .pipe(clean({force: true}));
 });
 
 gulp.task('sass', function () {
-  gulp.src('./app/sass/**/*.scss')
+  gulp.src(config.css.main)
     .pipe(sass({
     	outputStyle: 'compressed'
     }).on('error', sass.logError))
+    .pipe(concat('main.css'))
     .pipe(autoprefixer())
     .pipe(gulp.dest('./app/'))
     .pipe(livereload());
 });
 
 gulp.task('concatLibsCss', function() {
-     gulp.src( config.css.libs )
+     gulp.src(config.css.libs)
         .pipe(concat('libs.css'))
         .pipe(gulp.dest('./app/'))
         .pipe(livereload());
@@ -120,7 +120,7 @@ gulp.task('default', function() {
 	livereload.listen();
 	runSequence(
 		['clean'],
-		['sass','concatLibsCss','browserify','connect']
+		['sass','concatLibsCss', 'hint', 'browserify','connect']
 	);
 	gulp.watch('./app/sass/**/*.scss', ['sass']);
 	gulp.watch('./app/js/**/*.js', ['hint','browserify']);
